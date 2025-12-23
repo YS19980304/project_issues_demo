@@ -16,6 +16,7 @@ class TestCloudApplicationTests {
     @Resource
     private ThreadPoolExecutor customizeDtpExecutor;
 
+
     /**
      * 触发报警
      * <p>
