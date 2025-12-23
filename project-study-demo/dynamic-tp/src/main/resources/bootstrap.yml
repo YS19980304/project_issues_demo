@@ -1,0 +1,29 @@
+
+nacos:
+  server-addr: 127.0.0.1:8848
+  namespace: gjgx
+springfox:
+  documentation:
+    enabled: true
+spring:
+  application:
+    name: dynamic-tp-demo
+  profiles:
+    active: dev
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+      config:
+        server-addr: ${nacos.server-addr}
+        file-extension: yaml
+        shared-configs:
+          - data-id: dynamic-tp-demo.yaml
+            refresh: true
+            group: DEFAULT_GROUP
+        namespace: ${nacos.namespace}
+      username:
+      password:
