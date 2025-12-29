@@ -9,12 +9,12 @@ import lombok.Data;
     </#if>
 
 
-<#assign prefix = "${table_prefix}">
+<#assign prefix = "${table_prefix?lower_case?replace('_', '')}">
 <#assign tableName = "${table.name}">
 
 
 <#-- 去掉表前缀 -->
-<#assign noPrefixString = tableName?replace(prefix, "")>
+<#assign noPrefixString = tableName?lower_case?replace(prefix, "")>
 <#-- 将下划线分割的字符串转换为驼峰命名 -->
 <#assign parts = noPrefixString?split("_")>
 <#assign result = "">
